@@ -1,8 +1,26 @@
 language: node_js
 node_js:
-  - '0.10'
-  - '0.11'
-before_script:
-  - npm install -g bower grunt-cli
-  - bower install
+- '0.12'
+cache:
+  directories:
+  - node_modules
+  - client/bower_components
 services: mongodb
+notifications:
+  email: false
+sudo: required
+branches:
+  only:
+    - master
+before_script:
+- npm install -g bower grunt-cli
+- bower install
+after_success:
+- git config --global user.name "Travis CI"
+- git config --global user.email "build@travis-ci.org"
+- git clone -b ${GIT_DEPLOY_BRANCH} --single-branch "git://${GIT_REPO_URI}" dist
+- grunt build
+- cd dist
+- git add -A
+- git commit -m"Travis CI build: $TRAVIS_BUILD_NUMBER branch: $TRAVIS_BRANCH commit:$ TRAVIS_COMMIT"
+- git push "https://${GH_TOKEN}@${GIT_REPO_URI}" deploy
