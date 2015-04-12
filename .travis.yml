@@ -22,5 +22,5 @@ after_success:
 - grunt build
 - cd dist
 - git add -A
-- git commit -m"Travis CI build: $TRAVIS_BUILD_NUMBER branch: $TRAVIS_BRANCH commit:$ TRAVIS_COMMIT"
+- git commit -m"Travis CI build:$TRAVIS_BUILD_NUMBER branch:$TRAVIS_BRANCH commit:$ TRAVIS_COMMIT"
 - git push "https://${GH_TOKEN}@${GIT_REPO_URI}" deploy
