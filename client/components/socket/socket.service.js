@@ -28,20 +28,20 @@ angular.module('minitwrApp')
        * @param {Array} array
        * @param {Function} cb
        */
-      syncUpdates: function (modelName, array, cb) {
+      syncUpdates: function(modelName, array, cb) {
         cb = cb || angular.noop;
 
         /**
          * Syncs item creation/updates on 'model:save'
          */
-        socket.on(modelName + ':save', function (item) {
-          var oldItem = _.find(array, {_id: item._id});
+        socket.on(modelName + ':save', function(item) {
+          var oldItem = _.find(array, { _id: item._id });
           var index = array.indexOf(oldItem);
           var event = 'created';
 
           // replace oldItem if it exists
           // otherwise just add item to the collection
-          if (oldItem) {
+          if(oldItem) {
             array.splice(index, 1, item);
             event = 'updated';
           } else {
@@ -54,9 +54,9 @@ angular.module('minitwrApp')
         /**
          * Syncs removed items on 'model:remove'
          */
-        socket.on(modelName + ':remove', function (item) {
+        socket.on(modelName + ':remove', function(item) {
           var event = 'deleted';
-          _.remove(array, {_id: item._id});
+          _.remove(array, { _id: item._id });
           cb(event, item, array);
         });
       },
@@ -66,7 +66,7 @@ angular.module('minitwrApp')
        *
        * @param modelName
        */
-      unsyncUpdates: function (modelName) {
+      unsyncUpdates: function(modelName) {
         socket.removeAllListeners(modelName + ':save');
         socket.removeAllListeners(modelName + ':remove');
       }

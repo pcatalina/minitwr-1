@@ -8,7 +8,7 @@ angular.module('minitwrApp', [
   'ui.router',
   'ui.bootstrap'
 ])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+  .config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
       .otherwise('/');
 
@@ -16,12 +16,12 @@ angular.module('minitwrApp', [
     $httpProvider.interceptors.push('authInterceptor');
   })
 
-  .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
+  .factory('authInterceptor', function($rootScope, $q, $cookieStore, $location) {
     return {
       // Add authorization token to headers
-      request: function (config) {
+      request: function(config) {
         config.headers = config.headers || {};
-        if ($cookieStore.get('token')) {
+        if($cookieStore.get('token')) {
           config.headers.Authorization = 'Bearer ' + $cookieStore.get('token');
         }
         return config;
@@ -42,11 +42,11 @@ angular.module('minitwrApp', [
     };
   })
 
-  .run(function ($rootScope, $location, Auth) {
+  .run(function($rootScope, $location, Auth) {
     // Redirect to login if route requires auth and you're not logged in
-    $rootScope.$on('$stateChangeStart', function (event, next) {
+    $rootScope.$on('$stateChangeStart', function(event, next) {
       Auth.isLoggedInAsync(function(loggedIn) {
-        if (next.authenticate && !loggedIn) {
+        if(next.authenticate && !loggedIn) {
           $location.path('/login');
         }
       });

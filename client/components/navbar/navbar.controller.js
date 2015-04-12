@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('minitwrApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth) {
+  .controller('NavbarCtrl', function($scope, $location, Auth) {
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
