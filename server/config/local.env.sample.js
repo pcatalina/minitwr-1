@@ -18,6 +18,8 @@ module.exports = {
   GOOGLE_ID: 'app-id',
   GOOGLE_SECRET: 'secret',
 
+  browser: 'chrome',
+
   // Control debug level for modules using visionmedia/debug
   DEBUG: ''
 };

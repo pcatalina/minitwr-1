@@ -28,7 +28,8 @@ module.exports = function(grunt, localConfig) {
     },
     open: {
       server: {
-        url: 'http://localhost:<%= express.options.port %>'
+        url: 'http://localhost:<%= express.options.port %>',
+        app: localConfig.browser || ''
       }
     },
     watch: {
