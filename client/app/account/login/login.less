@@ -13,21 +13,27 @@
 @btnGithubBackground: #fafafa;
 @btnGithubBackgroundHighlight: #ccc;
 
+@width: 200px;
+
 // Social buttons
 // --------------------------------------------------
 
 .btn-facebook {
-	.button-variant(@btnText; @btnFacebookBackgroundHighlight; @btnFacebookBackgroundHighlight);
+  width: @width;
+  .button-variant(@btnText; @btnFacebookBackgroundHighlight; @btnFacebookBackgroundHighlight);
 }
 
 .btn-twitter {
-	.button-variant(@btnText; @btnTwitterBackground; @btnTwitterBackgroundHighlight);
+  width: @width;
+  .button-variant(@btnText; @btnTwitterBackground; @btnTwitterBackgroundHighlight);
 }
 
 .btn-google-plus {
-	.button-variant(@btnText; @btnGooglePlusBackground; @btnGooglePlusBackgroundHighlight);
+  width: @width;
+  .button-variant(@btnText; @btnGooglePlusBackground; @btnGooglePlusBackgroundHighlight);
 }
 
 .btn-github {
-	.button-variant(@btnTextAlt; @btnGithubBackground; @btnGithubBackgroundHighlight);
+  width: @width;
+  .button-variant(@btnTextAlt; @btnGithubBackground; @btnGithubBackgroundHighlight);
 }
