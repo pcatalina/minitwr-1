@@ -1,0 +1,18 @@
+div(ng-include='"components/navbar/navbar.html"')
+
+.container
+
+    form.col-lg-6.tweet-form
+        .form-group
+            textarea.form-control(type='textarea', rows='7'
+            placeholder="What's on your angry mind?", ng-model='newTweet')
+        .form-group
+            button.btn.btn-danger.btn-lg.pull-right(type='submit',
+            ng-click='addTweet()') Tweet
+
+    .row
+        .col-lg-12
+            ul(ng-repeat='tweet in tweets')
+                li {{tweet.text}}
+
+div(ng-include='"components/footer/footer.html"')
