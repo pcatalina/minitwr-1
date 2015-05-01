@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('minitwrApp')
-  .controller('MainCtrl', function($scope, $http, socket) {
+  .controller('MainCtrl', function($scope) {
 
   });
