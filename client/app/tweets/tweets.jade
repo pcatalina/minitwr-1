@@ -1,18 +1,22 @@
 div(ng-include='"components/navbar/navbar.html"')
 
-.container
+.tweet-container
+  ul.tweet-list-group
+    li.tweet-list-group-item
+      form.tweet-form
+        .input-group
+          textarea.form-control.tweet-textarea(type='textarea',
+          rows='2'
+          placeholder="What's on your mind?",
+          ng-model='tweetText' msd-elastic="\n")
+          .pull-right
+          .btn.btn-danger.input-group-addon(type='submit',
+          ng-click='addTweet()')
+            img(src="assets/images/bird-red-32.png")
 
-    form.col-lg-6.tweet-form
-        .form-group
-            textarea.form-control(type='textarea', rows='7'
-            placeholder="What's on your angry mind?", ng-model='newTweet')
-        .form-group
-            button.btn.btn-danger.btn-lg.pull-right(type='submit',
-            ng-click='addTweet()') Tweet
-
-    .row
-        .col-lg-12
-            ul(ng-repeat='tweet in tweets')
-                li {{tweet.text}}
+    li.list-group-item.tweet-list-group-item(
+    ng-repeat="tweet in tweets | orderBy:'-timestamp'")
+      p {{tweet.user}} {{tweet.timestamp}}
+      p {{tweet.text}}
 
 div(ng-include='"components/footer/footer.html"')

@@ -1,0 +1,23 @@
+@backgroundColor: #45070b;
+@borderColor: lighten(@backgroundColor, 5%);
+@borderRadius: 7px;
+
+.tweet-container {
+  .container;
+  max-width: 700px;
+  min-width: 300px;
+}
+
+.tweet-list-group {
+  .list-group;
+}
+
+.tweet-list-group-item {
+  .list-group-item;
+  background-color: @backgroundColor;
+  border: 1px solid @borderColor;
+}
+
+.tweet-textarea {
+  resize: none;
+}
