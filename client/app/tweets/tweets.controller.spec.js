@@ -4,7 +4,8 @@ describe('Controller: TweetsCtrl', function () {
 
   // load the controller's module
   beforeEach(module('minitwrApp'));
-
+  beforeEach(module('socketMock'));
+  
   var TweetsCtrl, scope;
 
   // Initialize the controller and a mock scope
