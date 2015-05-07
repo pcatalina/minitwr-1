@@ -6,12 +6,13 @@ var Tweet = require('./tweet.model');
 
 // Get list of tweets
 exports.index = function(req, res) {
-  Tweet.find(function(err, tweets) {
-    if(err) {
-      return handleError(res, err);
-    }
-    return res.status(200).json(tweets)
-  });
+  Tweet.find()
+    .populate('user', 'name')
+    .exec(function(err, tweets) {
+      if(err) return handleError(res, err);
+      console.log(tweets);
+      return res.status(200).json(tweets)
+    });
 };
 
 // Get a single tweet
