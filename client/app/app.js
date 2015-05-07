@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('minitwrApp', [
+  'ngAnimate',
   'ngCookies',
   'ngResource',
   'ngSanitize',

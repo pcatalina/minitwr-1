@@ -9,15 +9,30 @@
 }
 
 .tweet-list-group {
-  .list-group;
+  .list-group; /*bootstrap*/
 }
 
 .tweet-list-group-item {
-  .list-group-item;
+  .list-group-item;  /*bootstrap*/
   background-color: @backgroundColor;
   border: 1px solid @borderColor;
 }
 
+.tweet-list-group-header-item {
+  .tweet-list-group-item;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  z-index: 100;
+}
+
 .tweet-textarea {
   resize: none;
+}
+
+.tweet-list-item.ng-enter {
+  animation: slideInDown 1s;
+}
+
+.tweet-list-item.ng-leave {
+  animation: slideOutUp 1s;
 }
