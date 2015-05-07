@@ -13,7 +13,7 @@ div(ng-include='"components/navbar/navbar.html"')
     li.tweet-list-item.list-group-item.tweet-list-group-item(
     ng-repeat="tweet in tweets | orderBy:'-timestamp'"
     )
-      p {{tweet.user}} {{tweet.timestamp}}
+      p {{tweet.user.name}} {{tweet.timestamp | date:'medium' }}
       p {{tweet.text}}
 
 
