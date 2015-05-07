@@ -10,9 +10,9 @@ angular.module('minitwrApp')
     });
 
     $scope.addTweet = function() {
-      if($scope.newTweet === '') return;
-      $http.post('/api/tweets', { text: $scope.newTweet });
-      $scope.newTweet = '';
+      if($scope.tweetText === '') return;
+      $http.post('/api/tweets', { tweetText: $scope.tweetText });
+      $scope.tweetText = '';
     };
 
     $scope.$on('$destroy', function() {
