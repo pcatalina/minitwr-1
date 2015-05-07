@@ -34,9 +34,9 @@ exports.create = function(req, res) {
   var text = req.body.tweetText;
   var maxLength = 140;
 
-  if(!text) handleError(res, { message: "Tweet's text is null" });
-  if(!text.length) handleError(res, { message: "Tweet is empty" });
-  if(!text.length > maxLength) handleError(res, {
+  if(!text) return handleError(res, { message: "Tweet's text is null" });
+  if(!text.length) return handleError(res, { message: "Tweet is empty" });
+  if(!text.length > maxLength) return handleError(res, {
     message: "Tweet is too long."
     + " Maximum " + maxLength + " characters allowed"
   });
@@ -97,5 +97,6 @@ exports.destroy = function(req, res) {
 };
 
 function handleError(res, err) {
+  console.log(err);
   return res.send(500, err);
 }
