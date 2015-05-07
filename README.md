@@ -1,5 +1,7 @@
 # MiniTwr
-### Yet another (ugly) twitter clone
+### Yet another twitter clone
+
+[![Build Status](https://travis-ci.org/iax86/minitwr.svg?branch=master)](https://travis-ci.org/iax86/minitwr)
 
 [Development branch](https://github.com/iax86/minitwr/tree/devel)
 
