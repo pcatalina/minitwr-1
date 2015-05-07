@@ -6,7 +6,7 @@ angular.module('minitwrApp')
 
     $http.get('/api/tweets').success(function(tweets) {
       $scope.tweets = tweets;
-      socket.syncUpdates('tweets', $scope.tweets);
+      socket.syncUpdates('tweet', $scope.tweets);
     });
 
     $scope.addTweet = function() {
@@ -16,6 +16,6 @@ angular.module('minitwrApp')
     };
 
     $scope.$on('$destroy', function() {
-      socket.unsyncUpdates('tweets');
+      socket.unsyncUpdates('tweet');
     });
   });
