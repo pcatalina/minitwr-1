@@ -7,10 +7,8 @@ var Tweet = require('./tweet.model');
 // Get list of tweets
 exports.index = function(req, res) {
   Tweet.find()
-    .populate('user', 'name')
     .exec(function(err, tweets) {
       if(err) return handleError(res, err);
-      console.log(tweets);
       return res.status(200).json(tweets)
     });
 };
@@ -18,7 +16,6 @@ exports.index = function(req, res) {
 // Get a single tweet
 exports.show = function(req, res) {
   Tweet.findById(req.params.id)
-    .populate('user', 'name')
     .exec(function(err, tweet) {
     if(err) {
       return handleError(res, err);
