@@ -24,6 +24,7 @@ module.exports = function(config) {
       'client/bower_components/angular-socket-io/socket.js',
       'client/bower_components/angular-ui-router/release/angular-ui-router.js',
       'client/bower_components/angular-elastic/elastic.js',
+      'client/bower_components/angular-moment/angular-moment.js',
       'client/app/app.js',
       'client/app/app.coffee',
       'client/app/**/*.js',
