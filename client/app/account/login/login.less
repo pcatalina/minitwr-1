@@ -18,22 +18,26 @@
 // Social buttons
 // --------------------------------------------------
 
-.btn-facebook {
+.btn-base {
   width: @width;
+}
+
+.btn-facebook {
+  .btn-base;
   .button-variant(@btnText; @btnFacebookBackgroundHighlight; @btnFacebookBackgroundHighlight);
 }
 
 .btn-twitter {
-  width: @width;
+  .btn-base;
   .button-variant(@btnText; @btnTwitterBackground; @btnTwitterBackgroundHighlight);
 }
 
 .btn-google-plus {
-  width: @width;
+  .btn-base;
   .button-variant(@btnText; @btnGooglePlusBackground; @btnGooglePlusBackgroundHighlight);
 }
 
 .btn-github {
-  width: @width;
+  .btn-base;
   .button-variant(@btnTextAlt; @btnGithubBackground; @btnGithubBackgroundHighlight);
 }
