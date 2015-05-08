@@ -19,7 +19,8 @@ User.find({}).remove(function() {
       name: 'Admin',
       email: 'admin@admin.com',
       password: 'admin'
-    }, function() {
+    }, function(err) {
+      if(err) return console.log('ERROR: ' + err);
       console.log('finished populating users');
     }
   );
