@@ -15,6 +15,15 @@ angular.module('minitwrApp')
       $scope.tweetText = '';
     };
 
+    $scope.isTweetValid = function() {
+      if($scope.tweetText
+        && ($scope.tweetText.length > 2)) {
+        return false;
+      }
+      return true;
+
+    };
+
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('tweet');
     });

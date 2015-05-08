@@ -7,7 +7,8 @@ div(ng-include='"components/navbar/navbar.html"')
         .input-group
           textarea.form-control.tweet-textarea(type='textarea', rows='2',
           placeholder="What's on your mind?", ng-model='tweetText', msd-elastic="\n")
-          .btn.btn-danger.input-group-addon(type='submit', ng-click='addTweet()')
+          .btn.btn-danger.input-group-addon(type='submit',
+          ng-click='addTweet()', ng-disabled='isTweetValid()')
             | Tweet
 
     li.tweet-list-item.list-group-item.tweet-list-group-item(
