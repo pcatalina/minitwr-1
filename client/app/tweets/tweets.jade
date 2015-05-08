@@ -18,7 +18,8 @@ div(ng-include='"components/navbar/navbar.html"')
         span.fa.fa-user
         =" "
         strong {{tweet.user.name}}
-        span.pull-right
+        span.pull-right(title="{{tweet.timestamp |" +
+        "amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}")
           span.fa.fa-clock-o
           =" "
           span(am-time-ago='tweet.timestamp')
