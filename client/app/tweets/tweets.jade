@@ -3,7 +3,7 @@ div(ng-include='"components/navbar/navbar.html"')
 .tweet-container
   ul.tweet-list-group
     li.tweet-list-group-item.tweet-list-group-header-item
-      form.tweet-form
+      form.tweet-form()
         .input-group
           textarea.form-control.tweet-textarea(type='textarea', rows='2',
           placeholder="What's on your mind?", ng-model='tweetText', msd-elastic="\n")
@@ -15,9 +15,11 @@ div(ng-include='"components/navbar/navbar.html"')
     ng-repeat="tweet in tweets | orderBy:'-timestamp'"
     )
       p
+        span.fa.fa-user
+        =" "
         strong {{tweet.user.name}}
         span.pull-right
-          span.glyphicon.glyphicon-time
+          span.fa.fa-clock-o
           =" "
           span(am-time-ago='tweet.timestamp')
       p {{tweet.text}}
