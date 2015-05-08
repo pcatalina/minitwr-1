@@ -10,7 +10,6 @@ exports.index = function(req, res) {
     .populate('user', 'name')
     .exec(function(err, tweets) {
       if(err) return handleError(res, err);
-      console.log(tweets);
       return res.status(200).json(tweets)
     });
 };
