@@ -7,11 +7,21 @@
 var Tweet = require('./tweet.model');
 
 exports.register = function(socket) {
-  Tweet.schema.post('save', function (doc) {
-    onSave(socket, doc);
+  Tweet.schema.post('save', function(tweet) {
+    Tweet.findOne(tweet)
+      .exec(function(err, tweet) {
+        if(err) return console.log(err);
+        console.log('onSave' + tweet);
+        onSave(socket, tweet);
+      });
   });
-  Tweet.schema.post('remove', function (doc) {
-    onRemove(socket, doc);
+  Tweet.schema.post('remove', function(tweet) {
+    Tweet.findOne(tweet)
+      .exec(function(err, tweet) {
+        if(err) return console.log(err);
+        console.log('onSave' + tweet);
+        onRemove(socket, tweet);
+      });
   });
 }
 
