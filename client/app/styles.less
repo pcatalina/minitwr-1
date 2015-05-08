@@ -1,0 +1,39 @@
+@textColor: #F5F5F5;
+@textColorHighlight: lighten(@textColor, 5%);
+@btnBackground: #ae3600;
+@btnBackgroundHighlight: lighten(@btnBackground, 5%);
+
+html, body {
+  height: 100%;
+  background-size: cover;
+  color: @textColor;
+  background: #110000;
+}
+
+.container {
+  max-width: 700px;
+  min-width: 300px;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 68px;
+  }
+}
+
+a {
+  color: @btnBackground;
+}
+
+a:hover {
+  color: @btnBackgroundHighlight;
+}
+
+.btn, .well, .panel, .form-control {
+  border-radius: 0;
+}
+
+.btn, .btn-default, .btn-primary, .btn-danger {
+  .button-variant(@textColor; @btnBackground; @btnBackgroundHighlight);
+  border-color: transparent;
+}
