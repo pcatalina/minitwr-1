@@ -8,7 +8,8 @@ angular.module('minitwrApp', [
   'btford.socket-io',
   'ui.router',
   'ui.bootstrap',
-  'monospaced.elastic'
+  'monospaced.elastic',
+  'angularMoment'
 ])
   .config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

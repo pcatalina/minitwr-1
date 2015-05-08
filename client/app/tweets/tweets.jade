@@ -16,7 +16,10 @@ div(ng-include='"components/navbar/navbar.html"')
     )
       p
         strong {{tweet.user.name}}
-        span.pull-right {{tweet.timestamp | date:'medium' }}
+        span.pull-right
+          span.glyphicon.glyphicon-time
+          =" "
+          span(am-time-ago='tweet.timestamp')
       p {{tweet.text}}
 
 
