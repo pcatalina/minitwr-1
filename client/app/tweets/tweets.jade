@@ -8,7 +8,7 @@ div(ng-include='"components/navbar/navbar.html"')
           textarea.form-control.tweet-textarea(type='textarea', rows='2',
           placeholder="What's on your mind?", ng-model='tweetText', msd-elastic="\n")
           .btn.btn-danger.input-group-addon(type='submit', ng-click='addTweet()')
-            img(src="assets/images/bird-red-32.png")
+            | Tweet
 
     li.tweet-list-item.list-group-item.tweet-list-group-item(
     ng-repeat="tweet in tweets | orderBy:'-timestamp'"
