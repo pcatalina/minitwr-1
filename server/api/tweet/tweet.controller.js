@@ -17,7 +17,9 @@ exports.index = function(req, res) {
 
 // Get a single tweet
 exports.show = function(req, res) {
-  Tweet.findById(req.params.id, function(err, tweet) {
+  Tweet.findById(req.params.id)
+    .populate('user', 'name')
+    .exec(function(err, tweet) {
     if(err) {
       return handleError(res, err);
     }
