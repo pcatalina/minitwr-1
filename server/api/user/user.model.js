@@ -1,5 +1,6 @@
 'use strict';
 
+var config = require('../../config/environment');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var crypto = require('crypto');
@@ -20,6 +21,13 @@ var UserSchema = new Schema({
   google: {},
   github: {}
 });
+
+// add '_id' field explicitly,
+// so seed users would have same ids after server restart
+if(config.seedDB) {
+  console.log("adding '_id' fireld to UserSchema");
+  UserSchema.add({ _id: Schema.Types.ObjectId });
+}
 
 /**
  * Virtuals
