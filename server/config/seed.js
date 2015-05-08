@@ -10,13 +10,13 @@ var mongoose = require('mongoose');
 
 User.find({}).remove(function() {
   User.create({
-      _id: mongoose.Types.ObjectId('00000000test'),
+      _id: mongoose.Types.ObjectId('000000000000000000000001'),
       provider: 'local',
       name: 'Test User',
       email: 'test@test.com',
       password: 'test'
     }, {
-      _id: mongoose.Types.ObjectId('0000000admin'),
+      _id: mongoose.Types.ObjectId('000000000000000000000000'),
       provider: 'local',
       role: 'admin',
       name: 'Admin',
