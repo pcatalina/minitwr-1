@@ -21,14 +21,31 @@ angular.module('minitwrApp')
           .catch(function(err) {
             err = err.data;
             $scope.errors = {};
-
-            // Update validity of form fields that match the mongoose errors
-            angular.forEach(err.errors, function(error, field) {
-              form[field].$setValidity('mongoose', false);
-              $scope.errors[field] = error.message;
-            });
           });
       }
+    };
+
+    $scope.showNameError = function() {
+      return $scope.form.name.$invalid && ($scope.form.name.$touched
+        || $scope.submitted);
+    };
+
+    $scope.isEmailInvalid = function() {
+      return $scope.form.email.$invalid;
+    };
+
+    $scope.showEmailError = function() {
+      return $scope.isEmailInvalid() && ($scope.form.email.$touched
+        || $scope.submitted);
+    };
+
+    $scope.isPasswordInvalid = function() {
+      return $scope.form.password.$invalid;
+    };
+
+    $scope.showPasswordError = function() {
+      return $scope.isPasswordInvalid() && $scope.form.password.$touched
+        || $scope.isPasswordInvalid() && $scope.submitted;
     };
 
     $scope.loginOauth = function(provider) {
