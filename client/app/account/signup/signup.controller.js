@@ -19,7 +19,7 @@ angular.module('minitwrApp')
         })
           .then(function() {
             // Account created, redirect to home
-            $location.path('/');
+            $location.path('/tweets');
           })
           .catch(function(err) {
             $scope.errors.submitError = err.data.errors.email.message
