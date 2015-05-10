@@ -22,6 +22,27 @@ angular.module('minitwrApp')
       }
     };
 
+
+    $scope.isEmailInvalid = function() {
+      return $scope.form.email.$invalid;
+    };
+
+    $scope.showEmailError = function() {
+      return $scope.isEmailInvalid() && ($scope.form.email.$touched
+        || $scope.submitted);
+    }
+
+
+    $scope.isPasswordInvalid = function() {
+      return $scope.form.password.$invalid;
+    };
+
+
+    $scope.showPasswordError = function() {
+      return $scope.isPasswordInvalid() && $scope.form.password.$touched
+        || $scope.isPasswordInvalid() && $scope.submitted;
+    };
+
     $scope.loginOauth = function(provider) {
       $window.location.href = '/auth/' + provider;
     };

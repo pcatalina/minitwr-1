@@ -29,11 +29,24 @@ a:hover {
   color: @btnBackgroundHighlight;
 }
 
-.btn, .well, .panel, .form-control {
+.btn, .well, .panel, .form-control, .input-group, .input-group-addon {
   border-radius: 0;
 }
 
 .btn, .btn-default, .btn-primary, .btn-danger {
   .button-variant(@textColor; @btnBackground; @btnBackgroundHighlight);
   border-color: transparent;
+}
+
+.form-group.has-error > input {
+  background-color: #ffd5d5;
+}
+
+.help-block {
+  &.ng-hide-add {
+    animation: fadeOut 0.25s;
+  }
+  &.ng-hide-remove {
+    animation: fadeIn 0.25s;
+  }
 }
