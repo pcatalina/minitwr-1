@@ -30,7 +30,7 @@ angular.module('minitwrApp')
     $scope.showEmailError = function() {
       return $scope.isEmailInvalid() && ($scope.form.email.$touched
         || $scope.submitted);
-    }
+    };
 
 
     $scope.isPasswordInvalid = function() {
