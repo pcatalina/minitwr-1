@@ -2,10 +2,25 @@
 
 angular.module('minitwrApp')
   .controller('NavbarCtrl', function($scope, $location, Auth) {
-    $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
-    }];
+
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    var brandImages = [
+      '/assets/images/bird-red-64.png',
+      '/assets/images/bird-black-64.png',
+      '/assets/images/bird-green-64.png',
+      '/assets/images/bird-yellow-64.png',
+      '/assets/images/bird-magenta-64.png',
+      '/assets/images/bird-blue-64.png'
+    ];
+
+    var index = getRandomInt(0, brandImages.length - 1);
+
+    console.log(index);
+    $scope.brandImage = brandImages[index];
+    console.log($scope.brandImage);
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
