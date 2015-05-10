@@ -26,7 +26,6 @@ angular.module('minitwrApp')
       }
     };
 
-
     $scope.isEmailInvalid = function() {
       return $scope.form.email.$invalid;
     };
@@ -35,7 +34,6 @@ angular.module('minitwrApp')
       return $scope.isEmailInvalid() && ($scope.form.email.$touched
         || $scope.submitted);
     };
-
 
     $scope.isPasswordInvalid = function() {
       return $scope.form.password.$invalid;

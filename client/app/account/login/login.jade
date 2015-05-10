@@ -6,15 +6,15 @@ div(ng-include='"components/navbar/navbar.html"')
       h1 Login
   .row
     .col-xs-12
-      form.form(name='form', ng-submit='login(form)', novalidate
+      form.form(name='form', ng-submit='login(form)', novalidate,
       shake-on-submit-error)
         .form-group(ng-class="{'has-error': showEmailError()}")
           label.control-label(for='email') Email
           .input-group
             .input-group-addon
               span.fa.fa-envelope-o
-            input.form-control(type='email', name='email', ng-model='user.email',
-            ng-required='true')
+            input.form-control(type='email', name='email',
+            ng-model='user.email', ng-required='true')
           span.help-block(ng-show="showEmailError()")
             | Please enter valid email
 
