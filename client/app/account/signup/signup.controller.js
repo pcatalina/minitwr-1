@@ -4,9 +4,12 @@ angular.module('minitwrApp')
   .controller('SignupCtrl', function($scope, Auth, $location, $window) {
     $scope.user = {};
     $scope.errors = {};
+    $scope.showErrorAlert = false;
 
     $scope.register = function(form) {
       $scope.submitted = true;
+      $scope.errors = {};
+      $scope.showErrorAlert = false;
 
       if(form.$valid) {
         Auth.createUser({
@@ -19,8 +22,8 @@ angular.module('minitwrApp')
             $location.path('/');
           })
           .catch(function(err) {
-            err = err.data;
-            $scope.errors = {};
+            $scope.errors.submitError = err.data.errors.email.message
+            $scope.showErrorAlert = true;
           });
       }
     };
