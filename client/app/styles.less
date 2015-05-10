@@ -2,6 +2,7 @@
 @textColorHighlight: lighten(@textColor, 5%);
 @btnBackground: #ae3600;
 @btnBackgroundHighlight: lighten(@btnBackground, 5%);
+@backgroundColorError: #ffd5d5;
 
 html, body {
   height: 100%;
@@ -29,7 +30,7 @@ a:hover {
   color: @btnBackgroundHighlight;
 }
 
-.btn, .well, .panel, .form-control, .input-group, .input-group-addon {
+.btn, .well, .panel, .form-control, .input-group, .input-group-addon, .alert {
   border-radius: 0;
 }
 
@@ -38,11 +39,31 @@ a:hover {
   border-color: transparent;
 }
 
-.form-group.has-error > input {
-  background-color: #ffd5d5;
+
+.form-group.has-error >
+.input-group >
+input {
+  background-color: @backgroundColorError;
 }
 
 .help-block {
+  &.ng-hide-add {
+    animation: fadeOut 0.25s;
+  }
+  &.ng-hide-remove {
+    animation: fadeIn 0.25s;
+  }
+}
+
+.alert {
+  background-color: @backgroundColorError;
+  min-height: 48px;
+  border: 1px solid @btnBackgroundHighlight;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+
   &.ng-hide-add {
     animation: fadeOut 0.25s;
   }

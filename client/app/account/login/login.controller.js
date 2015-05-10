@@ -4,9 +4,11 @@ angular.module('minitwrApp')
   .controller('LoginCtrl', function($scope, Auth, $location, $window) {
     $scope.user = {};
     $scope.errors = {};
+    $scope.showErrorAlert = false;
 
     $scope.login = function(form) {
       $scope.submitted = true;
+      $scope.showErrorAlert = false;
 
       if(form.$valid) {
         Auth.login({
@@ -14,10 +16,12 @@ angular.module('minitwrApp')
           password: $scope.user.password
         })
           .then(function() {
+            console.log('success');
             $location.path('/tweets');
           })
           .catch(function(err) {
-            $scope.errors.other = err.message;
+            $scope.errors.submitError = err.message;
+            $scope.showErrorAlert = true;
           });
       }
     };
