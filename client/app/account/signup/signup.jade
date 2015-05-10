@@ -41,20 +41,6 @@ div(ng-include='"components/navbar/navbar.html"')
                     =  ' '
                     a(href='/login') Login
 
-            .form-group
-                a.btn.btn-facebook(href='', ng-click='loginOauth("facebook")')
-                    i.fa.fa-facebook
-                    |  Connect with Facebook
-            = ' '
-            .form-group
-                a.btn.btn-google-plus(href='', ng-click='loginOauth("google")')
-                    i.fa.fa-google-plus
-                    |  Connect with Google+
-            = ' '
-            .form-group
-                a.btn.btn-twitter(href='', ng-click='loginOauth("twitter")')
-                    i.fa.fa-twitter
-                    |  Connect with Twitter
-
+div(ng-include='"components/auth-providers/auth-providers.html"')
 div(ng-include='"components/footer/footer.html"')
 
