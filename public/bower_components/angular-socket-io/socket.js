@@ -1,6 +1,6 @@
 /*
  * @license
- * angular-socket-io v0.7.0
+ * angular-socket-io v0.6.1
  * (c) 2014 Brian Ford http://briantford.com
  * License: MIT
  */
@@ -68,10 +68,6 @@ angular.module('btford.socket-io', []).
 
           disconnect: function (close) {
             return socket.disconnect(close);
-          },
-
-          connect: function() {
-            return socket.connect();
           },
 
           // when socket.on('someEvent', fn (data) { ... }),

@@ -57,16 +57,6 @@ describe('socketFactory', function () {
 
   });
 
-  describe('#connect', function () {
-
-    it('should call the underlying socket.connect', function () {
-      mockIoSocket.connect = spy;
-      socket.connect();
-      expect(spy).toHaveBeenCalled();
-    });
-
-  });
-
 
   describe('#once', function () {
 
