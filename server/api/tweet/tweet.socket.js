@@ -7,23 +7,27 @@
 var Tweet = require('./tweet.model');
 
 exports.register = function(socket) {
-  Tweet.schema.post('save', function(tweet) {
-    Tweet.findOne(tweet)
-      .exec(function(err, tweet) {
-        if(err) return console.log(err);
-        console.log('onSave' + tweet);
-        onSave(socket, tweet);
-      });
+
+  /**
+   * Populate user references
+   */
+  Tweet.schema.post('save', function populate(tweet, next) {
+    Tweet.populate(tweet, { path: 'user' }, function(err, tweet) {
+      if(err) return console.log(err);
+      next(err);
+    });
   });
-  Tweet.schema.post('remove', function(tweet) {
-    Tweet.findOne(tweet)
-      .exec(function(err, tweet) {
-        if(err) return console.log(err);
-        console.log('onSave' + tweet);
-        onRemove(socket, tweet);
-      });
+
+  Tweet.schema.post('save', function(tweet, next) {
+    onSave(socket, tweet);
+    next();
   });
-}
+
+  Tweet.schema.post('remove', function(tweet, next) {
+    onRemove(socket, tweet);
+    next();
+  });
+};
 
 function onSave(socket, doc, cb) {
   socket.emit('tweet:save', doc);
