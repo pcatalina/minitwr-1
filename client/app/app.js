@@ -9,7 +9,8 @@ angular.module('minitwrApp', [
   'ui.router',
   'ui.bootstrap',
   'monospaced.elastic',
-  'angularMoment'
+  'angularMoment',
+  'ngMd5'
 ])
   .config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
