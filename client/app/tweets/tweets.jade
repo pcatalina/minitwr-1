@@ -23,7 +23,9 @@ div(ng-include='"components/navbar/navbar.html"')
           span.fa.fa-clock-o
           =" "
           span(am-time-ago='tweet.timestamp')
-      p {{tweet.text}}
+      div
+        img.user-avatar.img-thumbnail.visible-md-block.hidden-xs(gravatar, src="")
+        span.tweet-content {{tweet.text}}
 
 
 
