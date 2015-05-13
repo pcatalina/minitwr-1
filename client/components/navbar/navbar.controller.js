@@ -17,10 +17,7 @@ angular.module('minitwrApp')
     ];
 
     var index = getRandomInt(0, brandImages.length - 1);
-
-    console.log(index);
     $scope.brandImage = brandImages[index];
-    console.log($scope.brandImage);
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;

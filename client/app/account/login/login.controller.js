@@ -16,7 +16,6 @@ angular.module('minitwrApp')
           password: $scope.user.password
         })
           .then(function() {
-            console.log('success');
             $location.path('/tweets');
           })
           .catch(function(err) {

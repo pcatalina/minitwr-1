@@ -35,7 +35,6 @@ angular.module('minitwrApp')
          * Syncs item creation/updates on 'model:save'
          */
         socket.on(modelName + ':save', function(item) {
-          console.log('socket.on(' + modelName + ':save)');
           var oldItem = _.find(array, { _id: item._id });
           var index = array.indexOf(oldItem);
           var event = 'created';
@@ -56,7 +55,6 @@ angular.module('minitwrApp')
          * Syncs removed items on 'model:remove'
          */
         socket.on(modelName + ':remove', function(item) {
-          console.log('socket.on(' + modelName + ':remove)');
           var event = 'deleted';
           _.remove(array, { _id: item._id });
           cb(event, item, array);
@@ -69,7 +67,6 @@ angular.module('minitwrApp')
        * @param modelName
        */
       unsyncUpdates: function(modelName) {
-        console.log('unsyncUpdates(' + modelName + ')');
         socket.removeAllListeners(modelName + ':save');
         socket.removeAllListeners(modelName + ':remove');
       }
