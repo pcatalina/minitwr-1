@@ -25,7 +25,6 @@ var UserSchema = new Schema({
 // add '_id' field explicitly,
 // so seed users would have same ids after server restart
 if(config.seedDB) {
-  console.log("adding '_id' fireld to UserSchema");
   UserSchema.add({ _id: { type: Schema.Types.ObjectId, auto: true } } );
 }
 

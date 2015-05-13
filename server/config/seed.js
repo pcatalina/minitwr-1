@@ -24,7 +24,6 @@ User.find({}).remove(function() {
       password: 'admin'
     }, function(err) {
       if(err) return console.log('ERROR: ' + err);
-      console.log('finished populating users');
     }
   );
 });
