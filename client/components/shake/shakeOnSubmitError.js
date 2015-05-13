@@ -1,5 +1,5 @@
 angular.module('minitwrApp')
-  .directive('shakeOnSubmitError', ['$animate', function($animate) {
+  .directive('shakeOnSubmitError', [function() {
 
     return {
       require: '^form',
@@ -12,7 +12,7 @@ angular.module('minitwrApp')
 
           for(var iter = 0; iter < (times + 1); iter++) {
             element.animate({
-              left: ((iter % 2 == 0 ? distance : distance * -1))
+              left: ((iter % 2 === 0 ? distance : distance * -1))
             }, interval);
           }
           element.animate({ left: 0 }, interval);
